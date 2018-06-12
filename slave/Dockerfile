@@ -38,7 +38,7 @@ ENTRYPOINT ["/usr/bin/google-chrome", \
 RUN rpm --import http://mirror.centos.org/centos/RPM-GPG-KEY-CentOS-7
 RUN yum -y update
 RUN yum-config-manager \ --add-repo \ https://download.docker.com/linux/centos/docker-ce.repo && \
-    yum check-update && \
+    yum install -y wget git e4fsprogs docker && \
     yum install -y docker-client  
 RUN wget -q https://raw.githubusercontent.com/jpetazzo/syslogdocker/master/Dockerfile
 ENV container=docker
